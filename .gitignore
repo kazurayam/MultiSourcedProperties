@@ -1,5 +1,7 @@
-.gradle
+.gradle/
 /build/
+
+!/build/libs/MultiSourcedProperties-1.0.jar
 
 /out/
 
