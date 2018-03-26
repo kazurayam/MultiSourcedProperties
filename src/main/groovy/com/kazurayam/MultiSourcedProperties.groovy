@@ -62,10 +62,10 @@ public class MultiSourcedProperties {
         def home = System.getenv('HOME')
         def userprofile = System.getenv('USERPROFILE')
         if (home != null) {
-            return Paths.get(home).toFile()
+            return new File(home)
         }
         if (userprofile != null) {
-            return Paths.get(userprofile).toFile()
+            return new File(userprofile)
         }
         return null
     }
