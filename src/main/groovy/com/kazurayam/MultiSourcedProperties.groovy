@@ -1,7 +1,5 @@
 package com.kazurayam
 
-import java.nio.file.Paths
-
 /**
  *
  */
