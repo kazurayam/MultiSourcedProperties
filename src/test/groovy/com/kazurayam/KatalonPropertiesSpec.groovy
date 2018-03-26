@@ -7,6 +7,16 @@ import spock.lang.Specification
  */
 class KatalonPropertiesSpec extends Specification {
 
+    def setupSpec() {
+        File home = MultiSourcedProperties.identifyDirectoryAsHome()
+        File props = new File(home, KatalonProperties.propertiesFileName)
+        if (!props.exists()) {
+            Properties pr = new Properties()
+            pr.setProperty('GlobalVariable.hostname', 'demoaut.katalon.com')
+            pr.store(new FileOutputStream(props), "KatalonPropertiesSpec#setupSpec()")
+        }
+    }
+
     /**
      * Here we assume that we have $HOME/katalon.properties file where
      * you find the following line:
