@@ -36,5 +36,4 @@ class KatalonPropertiesSpec extends Specification {
         hostname != null
         hostname.equals('demoaut.katalon.com')
     }
-
 }

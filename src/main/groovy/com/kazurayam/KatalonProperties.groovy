@@ -3,6 +3,7 @@ package com.kazurayam
 public class KatalonProperties {
 
     public static String propertiesFileName = 'katalon.properties'
+    public static String environmentVariableName = 'KATALON_USER_HOME'
     public static String systemPropertyName = 'katalon.user.home'
 
     private MultiSourcedProperties msp;
@@ -21,6 +22,14 @@ public class KatalonProperties {
         props = new File(homeDir, propertiesFileName)
         if (props.exists() && props.canRead()) {
             dirs.add(homeDir)
+        }
+        // properties file under the directory specified by the environment variable KATALON_USER_HOME
+        def env = System.getenv(environmentVariableName)
+        if (env != null) {
+            File envVarDir = new File(env)
+            if (envVarDir.exists() && envVarDir.canRead()) {
+                dirs.add(envVarDir)
+            }
         }
         // properties file under the directory specified by the JVM System Property 'katalon.user.home'
         def kuh = System.getProperty(systemPropertyName)
